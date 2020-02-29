@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("library/authors")
+@RequestMapping("/library/authors")
 public class AuthorsController(private val crudService: LibraryCrudService<AuthorDto, CompactAuthorDto, Long>) :
         LibraryCrudController<AuthorDto, CompactAuthorDto, Long>(crudService)

@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("library/genres")
+@RequestMapping("/library/genres")
 public class GenresControllerController(private val crudService: LibraryCrudService<GenreDto, CompactGenreDto, Long>) :
         LibraryCrudController<GenreDto, CompactGenreDto, Long>(crudService)

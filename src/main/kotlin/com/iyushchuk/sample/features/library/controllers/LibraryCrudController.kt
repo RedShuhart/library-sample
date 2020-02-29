@@ -23,5 +23,4 @@ public abstract class LibraryCrudController<Full, Compact, Id>(
     @DeleteMapping("/{id}")
     fun delete(@PathVariable(value = "id") id: Id) = crudService.delete(id)
 
-
 }

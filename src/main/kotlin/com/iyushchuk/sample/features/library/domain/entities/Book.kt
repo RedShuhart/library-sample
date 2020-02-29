@@ -1,32 +1,25 @@
 package com.iyushchuk.sample.features.library.domain.entities
 
-import javax.persistence.*
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
+import org.springframework.data.relational.core.mapping.Table
 
-@Entity
-@Table(name = "books")
+@Table("books")
 data class Book(
 
         @Id
-        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_generator")
-        @SequenceGenerator(name = "book_generator", sequenceName = "book_seq")
-        @Column(name = "id", updatable = false, nullable = false)
-        val id: Long,
+        @Column("id")
+        val id: Long? = null,
 
-        @Column(name = "title")
+        @Column("title")
         val title: String? = "",
 
-        @Column(name = "description")
+        @Column("description")
         val description: String? = "",
 
-        @ManyToMany(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST, CascadeType.MERGE])
-        @JoinTable(
-                name = "books_authors",
-                joinColumns = [JoinColumn(name = "book")],
-                inverseJoinColumns = [JoinColumn(name = "author")]
-        )
-        val authors: List<Author>? = mutableListOf(),
+        @Column("author")
+        val author: Long? = null,
 
-        @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
-        @JoinColumn(name = "genre")
-        val genre: Genre?
+        @Column("genre")
+        val genre: Long? = null
 )

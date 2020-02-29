@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("library/books")
+@RequestMapping("/library/books")
 public class BooksControllerController(private val crudService: LibraryCrudService<BookDto, CompactBookDto, Long>) :
         LibraryCrudController<BookDto, CompactBookDto, Long>(crudService)
